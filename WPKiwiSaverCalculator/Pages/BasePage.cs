@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace WPKiwiSaverCalculator.Pages
 {
-    class CalculatorPage
+    public class BasePage
     {
+        //public BasePage(IWebDriver driver) : base(driver)
+        //{
+
+        //}
+
         private IWebDriver driver;
 
-        public CalculatorPage(IWebDriver driver)
+        public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-        }
-
-        internal void clickGetStartedCalculator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

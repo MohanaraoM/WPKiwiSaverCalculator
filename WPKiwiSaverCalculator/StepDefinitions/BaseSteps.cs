@@ -8,14 +8,14 @@ using WPKiwiSaverCalculator.DataModel;
 
 namespace WPKiwiSaverCalculator.StepDefinitions
 {
-    public class BaseSpecSteps
+    public class BaseSteps
     {
         protected ContextObject ContextObj;
         protected ScenarioContext ScenarioContext;
 
 
 
-        public BaseSpecSteps(ContextObject context, ScenarioContext scenarioContext)
+        public BaseSteps(ContextObject context, ScenarioContext scenarioContext)
         {
 
             ContextObj = context;

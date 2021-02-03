@@ -15,12 +15,12 @@ namespace WPKiwiSaverCalculator.DataModel
         public bool runOnGrid { get; set; }
         public string gridMachine { get; set; }
         public string gridBrowserVersion { get; set; }
-        public string environmentFile;
-        public string testEnviornment { get; set; }
-        public string enviornmentPath { get; set; }
+        public string envirnomentFile;
+        public string testEnvironment { get; set; }
+        public string environmentPath { get; set; }
         public string browser { get; set; }
         public IWebDriver Driver { get; set; }
-        public Verify verify { get; set; }
+        //public Verify verify { get; set; }
         public DateTime lastStepStart { get; set; }
     }
 }
