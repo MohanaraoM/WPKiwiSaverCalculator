@@ -121,9 +121,6 @@
     <Compile Include="StepDefinitions\CommonSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinitions\CopySteps.cs" />
-    <Compile Include="StepDefinitions\LandingPageSteps.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="StepDefinitions\RetirementCalculatorInformationIconSteps.cs" />
   </ItemGroup>
   <ItemGroup>

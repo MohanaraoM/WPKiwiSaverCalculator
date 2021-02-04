@@ -9,16 +9,15 @@ namespace WPKiwiSaverCalculator.Pages
 {
     public class BasePage
     {
-        //public BasePage(IWebDriver driver) : base(driver)
-        //{
 
-        //}
-
-        private IWebDriver driver;
+        protected IWebDriver driver;
 
         public BasePage(IWebDriver driver)
         {
-            this.driver = driver;
+
         }
+        
+
+
     }
 }

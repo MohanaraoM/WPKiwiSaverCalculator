@@ -11,17 +11,14 @@ namespace WPKiwiSaverCalculator.Pages
     public class GenericPage : BasePage
     {
         protected ContextObject contextObj;
-        private IWebDriver driver;
+     
 
         public GenericPage(ContextObject _contextobj) : base(_contextobj.Driver)
         {
             contextObj = _contextobj;
+            contextObj.Driver.SwitchTo().DefaultContent();
         }
 
-        //    public GenericPage(IWebDriver driver)
-        //    {
-        //        this.driver = driver;
-        //    }
-        //}
+       
     }
 }
