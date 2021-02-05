@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,44 @@ namespace WPKiwiSaverCalculator.Pages
             contextObj.Driver.SwitchTo().DefaultContent();
         }
 
-       
+        public IWebElement waitForElement(By locator,double timeout)
+        {
+            IWebElement elm;
+            WebDriverWait wait = new WebDriverWait(contextObj.Driver, TimeSpan.FromSeconds(timeout));
+            elm=wait.Until(x => contextObj.Driver.FindElement(locator));
+            wait.Until(d =>
+            {
+
+                if (elm != null)
+                {
+                    return elm.Displayed;
+
+                }
+                else return false;
+            });
+
+            return elm;
+        }
+
+        public void clickElement(By locator)
+        {
+            IWebElement elm;
+            WebDriverWait wait = new WebDriverWait(contextObj.Driver, TimeSpan.FromSeconds(60));
+            elm = wait.Until(x => contextObj.Driver.FindElement(locator));
+            elm.Click();
+   
+        }
+
+        public IWebElement GetElement(By elem)
+        {
+    
+                return contextObj.Driver.FindElement(elem);
+        }
+
+  
+
+
+
+
     }
 }

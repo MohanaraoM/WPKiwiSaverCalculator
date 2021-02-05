@@ -22,29 +22,25 @@ namespace WPKiwiSaverCalculator.Pages
         public void clickKiwiSaverCalculators()
         {
             contextObj.Driver.SwitchTo().DefaultContent();
-            new WebDriverWait(contextObj.Driver, TimeSpan.FromSeconds(30)).Until(x => contextObj.Driver.FindElement(_linkToKiwiSaver));
+            waitForElement(_linkToKiwiSaver,60);
             Actions action = new Actions(contextObj.Driver);
              action.MoveToElement(contextObj.Driver.FindElement(_linkToKiwiSaver));
             action.Perform();
 
-            new WebDriverWait(contextObj.Driver, TimeSpan.FromSeconds(30)).Until(x => contextObj.Driver.FindElement(_linkToCalculator));
+            waitForElement(_linkToCalculator,60);
 
             try
             {
-
                 contextObj.Driver.FindElement(_linkToCalculator).Click();
 
             }
                        catch (TimeoutException toe)
                         {
 
-
                 contextObj.Driver.FindElement(_linkToCalculator).Click();
-
                       }
                        catch (Exception e)
                        {
-
                            throw (e);
 
                      }

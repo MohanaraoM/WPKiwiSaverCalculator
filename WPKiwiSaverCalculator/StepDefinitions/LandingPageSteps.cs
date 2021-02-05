@@ -7,12 +7,11 @@ using WPKiwiSaverCalculator.Pages;
 namespace WPKiwiSaverCalculator.StepDefinitions
 {
     [Binding]
-    public class RetirementCalculatorInformationIconSteps : BaseSteps
+    public class LandingPageSteps : BaseSteps
     {
         private LandingPage _landingPage;
-        private readonly ContextObject _contextLocal;
 
-        public RetirementCalculatorInformationIconSteps(ContextObject context, IObjectContainer container) : base(context, container.Resolve<ScenarioContext>())
+        public LandingPageSteps(ContextObject context, IObjectContainer container) : base(context, container.Resolve<ScenarioContext>())
         {
             ContextObj = context;
         }
