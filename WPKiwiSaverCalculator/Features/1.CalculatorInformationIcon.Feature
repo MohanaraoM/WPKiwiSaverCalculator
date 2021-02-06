@@ -1,4 +1,4 @@
-﻿Feature:Calculator Information Icon
+﻿Feature:1.Calculator Information Icon
 
 @prod
   Scenario: Information Icon of Current Age

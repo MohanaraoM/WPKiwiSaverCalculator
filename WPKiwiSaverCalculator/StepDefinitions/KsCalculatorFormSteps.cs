@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,20 +39,23 @@ namespace WPKiwiSaverCalculator.StepDefinitions
 
         }
 
-        [When(@"I fill in '(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)'")]
+        [When(@"I fill in '(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)','(.*)'")]
         public void WhenIFillInHigh(string currentAge, string employmentStatus, string salary, string contribution,
-            string pir, string balance, string voluntaryContribution, string frequency, string riskProfile,
-            string savingGoal)
+           string balance, string voluntaryContribution, string frequency, string riskProfile,string savingGoal)
         {
-            _kscalcformPage.calculateRetirementBalance(currentAge, employmentStatus, salary, contribution, pir, balance,
+            _kscalcformPage.calculateRetirementBalance(currentAge, employmentStatus, salary, contribution, balance,
                 voluntaryContribution, frequency, riskProfile, savingGoal);
         }
 
-        [Then(@"I should get calculated projected balances")]
-        public void ThenIShouldGetCalculatedProjectedBalances()
+       
+        [Then(@"I should get calculated projected balances '(.*)'")]
+        public void ThenIShouldGetCalculatedProjectedBalances(string expectedBalance)
         {
-            Console.WriteLine("test");
+            var ActualBalance = _kscalcformPage.GetCalculatedBalance();
+
+            Assert.AreEqual(expectedBalance, ActualBalance.Replace("\r\n", ""));
         }
+
 
 
     }

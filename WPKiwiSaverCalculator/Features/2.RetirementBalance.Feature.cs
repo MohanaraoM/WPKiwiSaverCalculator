@@ -76,10 +76,10 @@ namespace WPKiwiSaverCalculator.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("To test KiwiSaver Retirement Calculator Projected Balance")]
         [NUnit.Framework.CategoryAttribute("prod")]
-        [NUnit.Framework.TestCaseAttribute("30", "Employed", "8200", "4%", "17.5%", "", "", "", "High", "", null)]
-        [NUnit.Framework.TestCaseAttribute("45", "Self-employed", "", "", "10.5%", "100000", "90", "Fortnightly", "Medium", "290000", null)]
-        [NUnit.Framework.TestCaseAttribute("55", "Not employed", "", "", "10.5%", "140000", "10", "Annually", "Medium", "200000", null)]
-        public virtual void ToTestKiwiSaverRetirementCalculatorProjectedBalance(string currentage, string emplomentstatus, string salary, string memebercontribution, string pir, string balance, string voluntarycontribution, string voluntaryfrequency, string riskprofile, string savingsgoal, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("30", "Employed", "8200", "4%", "", "", "", "Defensive", "", "$52,693", null)]
+        [NUnit.Framework.TestCaseAttribute("45", "Self-employed", "", "", "100000", "90", "Fortnightly", "Conservative", "290000", "$259,581", null)]
+        [NUnit.Framework.TestCaseAttribute("55", "Not employed", "", "", "140000", "10", "Annually", "Balanced", "200000", "$197,679", null)]
+        public virtual void ToTestKiwiSaverRetirementCalculatorProjectedBalance(string currentage, string emplomentstatus, string salary, string memebercontribution, string balance, string voluntarycontribution, string voluntaryfrequency, string riskprofile, string savingsgoal, string expectedBalance, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "prod"};
@@ -93,12 +93,12 @@ namespace WPKiwiSaverCalculator.Features
             argumentsOfScenario.Add("emplomentstatus", emplomentstatus);
             argumentsOfScenario.Add("salary", salary);
             argumentsOfScenario.Add("memebercontribution", memebercontribution);
-            argumentsOfScenario.Add("pir", pir);
             argumentsOfScenario.Add("balance", balance);
             argumentsOfScenario.Add("voluntarycontribution", voluntarycontribution);
             argumentsOfScenario.Add("voluntaryfrequency", voluntaryfrequency);
             argumentsOfScenario.Add("riskprofile", riskprofile);
             argumentsOfScenario.Add("savingsgoal", savingsgoal);
+            argumentsOfScenario.Add("ExpectedBalance", expectedBalance);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("To test KiwiSaver Retirement Calculator Projected Balance", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
   this.ScenarioInitialize(scenarioInfo);
@@ -127,10 +127,10 @@ namespace WPKiwiSaverCalculator.Features
     testRunner.And("I Navigate to Calculator form page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
-    testRunner.When(string.Format("I fill in \'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',\'{6}\',\'{7}\',\'{8}\',\'{9}\'", currentage, emplomentstatus, salary, memebercontribution, pir, balance, voluntarycontribution, voluntaryfrequency, riskprofile, savingsgoal), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("I fill in \'{0}\',\'{1}\',\'{2}\',\'{3}\',\'{4}\',\'{5}\',\'{6}\',\'{7}\',\'{8}\'", currentage, emplomentstatus, salary, memebercontribution, balance, voluntarycontribution, voluntaryfrequency, riskprofile, savingsgoal), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-    testRunner.Then("I should get calculated projected balances", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("I should get calculated projected balances \'{0}\'", expectedBalance), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
